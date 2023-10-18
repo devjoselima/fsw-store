@@ -16,7 +16,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
           height={0}
           width={0}
           sizes="100vw"
-          className="h-auto w-auto max-w-[80%] max-h-[80%]"
+          className="h-auto max-h-[70%] w-auto max-w-[80%]"
           style={{
             objectFit: 'contain',
           }}
@@ -39,16 +39,16 @@ const ProductItem = ({ product }: ProductItemProps) => {
         <div className="flex items-center gap-2 ">
           {product.discountPercentage > 0 ? (
             <>
-              <p className="font-bold ">
+              <p className="font-bold overflow-hidden whitespace-nowrap text-ellipsis">
                 R$ {product.totalPrice.toFixed(2)}
               </p>
 
-              <p className="text-xs opacity-75 line-through">
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
                 R$ {Number(product.basePrice).toFixed(2)}
               </p>
             </>
           ) : (
-            <p className="text-xs opacity-75 line-through">
+            <p className="overflow-hidden text-ellipsis whitespace-nowrap text-sm font-semibold">
               R$ {Number(product.basePrice).toFixed(2)}
             </p>
           )}
