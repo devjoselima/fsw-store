@@ -1,35 +1,41 @@
 "use client";
 
-import { 
+import {
   HomeIcon,
-  ListOrderedIcon, 
-  LogInIcon, 
-  MenuIcon, 
-  PercentIcon, 
-  ShoppingCartIcon 
+  ListOrderedIcon,
+  LogInIcon,
+  MenuIcon,
+  PercentIcon,
+  ShoppingCartIcon,
 } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarImage} from "./avatar"
+import { Avatar, AvatarImage } from "./avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { Separator } from "./separator";
 import Link from "next/link";
 
 const Header = () => {
-  const { status, data } = useSession()
+  const { status, data } = useSession();
 
   const handlerLoginClick = async () => {
-    await signIn()
+    await signIn();
   };
 
   const handlerLogoutClick = async () => {
     await signOut();
-  }
+  };
 
-  return ( 
-    <Card className="flex items-center justify-between p-[1.875rem]"> 
+  return (
+    <Card className="flex items-center justify-between p-[1.875rem]">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline">
@@ -42,7 +48,7 @@ const Header = () => {
             Menu
           </SheetHeader>
 
-          { status === 'authenticated' && data?.user && (
+          {status === "authenticated" && data?.user && (
             <div className="flex flex-col">
               <div className="flex items-center gap-2 py-4">
                 <Avatar>
@@ -63,47 +69,53 @@ const Header = () => {
             </div>
           )}
 
-          <div className="flex flex-col gap-3 mt-2">
-            { status === 'unauthenticated' && (
-              <Button 
-                onClick={handlerLoginClick} 
-                variant="outline" 
+          <div className="mt-2 flex flex-col gap-3">
+            {status === "unauthenticated" && (
+              <Button
+                onClick={handlerLoginClick}
+                variant="outline"
                 className="w-full justify-start gap-2"
               >
-                <LogInIcon size={16}/>
+                <LogInIcon size={16} />
                 Fazer Login
               </Button>
             )}
 
-            { status === 'authenticated' && (
-              <Button 
-                onClick={handlerLogoutClick} 
-                variant="outline" 
+            {status === "authenticated" && (
+              <Button
+                onClick={handlerLogoutClick}
+                variant="outline"
                 className="w-full justify-start gap-2"
               >
-                <LogInIcon size={16}/>
+                <LogInIcon size={16} />
                 Fazer Logout
               </Button>
             )}
 
             <SheetClose asChild>
               <Link href="/">
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <HomeIcon size={16}/>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <HomeIcon size={16} />
                   Inicio
                 </Button>
               </Link>
             </SheetClose>
 
             <Button variant="outline" className="w-full justify-start gap-2">
-              <PercentIcon size={16}/>
+              <PercentIcon size={16} />
               Ofertas
             </Button>
 
             <SheetClose asChild>
-              <Link href='/catalog'>
-                <Button variant="outline" className="w-full justify-start gap-2">
-                  <ListOrderedIcon size={16}/>
+              <Link href="/catalog">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <ListOrderedIcon size={16} />
                   Catálogo
                 </Button>
               </Link>
@@ -113,17 +125,16 @@ const Header = () => {
       </Sheet>
 
       <Link href="/">
-        <h1 className="font-semibold text-lg">
+        <h1 className="text-lg font-semibold">
           <span className="text-primary">FSW</span> Store
         </h1>
-      </Link> 
+      </Link>
 
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
       </Button>
-      
     </Card>
-   );
-}
- 
+  );
+};
+
 export default Header;
