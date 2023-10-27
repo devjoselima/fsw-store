@@ -35,11 +35,14 @@ const ProductDetailsPage = async ({
 
   return (
     <div className="flex flex-col gap-8 pb-8">
+      {/* @ts-expect-error */}
       <ProductImages imageUrls={product.imageUrls} name={product.name} />
+      {/* @ts-expect-error */}
       <ProductInfo product={computeProductTotalPrice(product)} />
 
       <div>
         <SectionTitle>Produtos recomendados</SectionTitle>
+        {/* @ts-expect-error */}
         <ProductList products={product?.category.products} />
       </div>
     </div>
