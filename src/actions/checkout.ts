@@ -3,7 +3,7 @@
 import { CartProduct } from "@/providers/cart";
 import Stripe from "stripe";
 
-export const createCheckout = async (product: CartProduct[]) => {
+export const createCheckout = async (products: CartProduct[]) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: "2023-10-16",
   });
@@ -13,7 +13,7 @@ export const createCheckout = async (product: CartProduct[]) => {
     mode: "payment",
     success_url: "http://localhost:3000",
     cancel_url: "http://localhost:3000",
-    line_items: product.map((product) => {
+    line_items: products.map((product) => {
       return {
         price_data: {
           currency: "brl",
