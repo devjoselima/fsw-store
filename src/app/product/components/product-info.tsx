@@ -1,7 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Cart from "@/components/ui/cart";
 import DiscountBadge from "@/components/ui/discount-badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ProductWithTotalPrice } from "@/helpers/product";
 import { CartContext } from "@/providers/cart";
 import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
@@ -65,12 +67,20 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         <p className="text-justify text-sm opacity-60">{product.description}</p>
       </div>
 
-      <Button
-        className="mt-8 font-bold uppercase"
-        onClick={handleAddToCartClick}
-      >
-        Adicionar ao carrinho
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button
+            className="mt-8 font-bold uppercase"
+            onClick={handleAddToCartClick}
+          >
+            Adicionar ao carrinho
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent>
+          <Cart />
+        </SheetContent>
+      </Sheet>
 
       <div className="mt-5 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
         <div className="flex items-center gap-2">
