@@ -6,8 +6,10 @@ import { getServerSession } from "next-auth";
 import OrderItem from "./components/order-item";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+export const dynamic = "force-dynamic";
+
 const OrderPage = async () => {
-  const user = getServerSession(authOptions);
+  const user = await getServerSession(authOptions);
 
   if (!user) {
     return <p>Acesso negado, faça login</p>;
