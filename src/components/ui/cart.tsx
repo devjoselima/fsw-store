@@ -47,12 +47,10 @@ const Cart = () => {
         <ScrollArea className="h-full">
           {products.length > 0 ? (
             products.map((product) => (
-              <>
-                <CartItem
-                  key={product.id}
-                  product={computeProductTotalPrice(product as any) as any}
-                />
-              </>
+              <CartItem
+                key={product.id}
+                product={computeProductTotalPrice(product as any) as any}
+              />
             ))
           ) : (
             <p className="text-center font-bold">Carrinho vazio.</p>
