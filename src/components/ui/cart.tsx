@@ -34,7 +34,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex h-full flex-col gap-8">
+    <div className="flex h-full flex-col gap-9">
       <Badge
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
         variant="outline"
@@ -59,7 +59,7 @@ const Cart = () => {
           )}
         </ScrollArea>
 
-        {products.length > 0 ? (
+        {products.length > 0 && (
           <div className="flex flex-col gap-3">
             <Separator />
 
@@ -96,8 +96,6 @@ const Cart = () => {
               Finalizar compra
             </Button>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>
