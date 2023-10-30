@@ -4,6 +4,7 @@ import { prismaClient } from "@/lib/prisma";
 import { ShoppingBasketIcon } from "lucide-react";
 import { getServerSession } from "next-auth";
 import OrderItem from "./components/order-item";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const OrderPage = async () => {
   const user = getServerSession(authOptions);
@@ -32,12 +33,20 @@ const OrderPage = async () => {
         variant="outline"
       >
         <ShoppingBasketIcon size={16} />
-        Catálogo
+        Meus pedidos
       </Badge>
 
-      {orders.map((order) => (
-        <OrderItem key={order.id} order={order} />
-      ))}
+      {orders.length > 0 ? (
+        <ScrollArea className="h-[600px]">
+          <div className="flex flex-col gap-5">
+            {orders.map((order) => (
+              <OrderItem key={order.id} order={order} />
+            ))}
+          </div>
+        </ScrollArea>
+      ) : (
+        <p>Não há pedidos registrados.</p>
+      )}
     </div>
   );
 };
