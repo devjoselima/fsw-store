@@ -21,9 +21,9 @@ const CategoryProducts = async ({ params }: any) => {
   }
 
   return (
-    <div className="flex flex-col gap-8 p-5">
-      <div className="flex cursor-pointer items-center justify-between gap-3">
-        <Link href="http://localhost:3000">
+    <div className="flex flex-col gap-8 p-5 lg:container lg:gap-10 lg:py-10">
+      <div className="flex cursor-pointer items-center gap-5 ">
+        <Link href={process.env.HOST_URL}>
           <ArrowLeftIcon size={22} />
         </Link>
         <Badge
@@ -35,7 +35,7 @@ const CategoryProducts = async ({ params }: any) => {
         </Badge>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
         {category.products.map((product) => (
           <ProductItem
             key={product.id}
