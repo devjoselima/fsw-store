@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import ProductItem from "@/components/ui/product-item";
+import { Skeleton } from "@/components/ui/skeleton";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { prismaClient } from "@/lib/prisma";
 import { ArrowLeftIcon, PercentIcon } from "lucide-react";
