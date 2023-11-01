@@ -22,7 +22,7 @@ const CategoryProducts = async ({ params }: any) => {
 
   return (
     <div className="flex flex-col gap-8 p-5 lg:container lg:gap-10 lg:py-10">
-      <div className="flex cursor-pointer items-center gap-5 ">
+      <div className="flex items-center gap-5 ">
         <Link href={process.env.HOST_URL}>
           <ArrowLeftIcon size={22} />
         </Link>
