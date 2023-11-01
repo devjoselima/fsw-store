@@ -1,12 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Cart from "@/components/ui/cart";
 import DiscountBadge from "@/components/ui/discount-badge";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ProductWithTotalPrice } from "@/helpers/product";
 import { CartContext } from "@/providers/cart";
-import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
+import { Minus, Plus, TruckIcon } from "lucide-react";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -60,7 +58,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       <div className="mt-4 flex items-center gap-2">
         <Button size="icon" variant="outline">
-          <ArrowLeftIcon size={16} onClick={handleDecreaseQuantityClick} />
+          <Minus size={16} onClick={handleDecreaseQuantityClick} />
         </Button>
 
         <span>{quantity}</span>
@@ -70,7 +68,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           variant="outline"
           onClick={handleIncreaseQuantityClick}
         >
-          <ArrowRightIcon size={16} />
+          <Plus size={16} />
         </Button>
       </div>
 
