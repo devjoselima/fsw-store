@@ -34,14 +34,16 @@ const ProductDetailsPage = async ({
   });
 
   return (
-    <div className="flex flex-col gap-8 pb-8">
-      {/* @ts-expect-error */}
-      <ProductImages imageUrls={product.imageUrls} name={product.name} />
-      {/* @ts-expect-error */}
-      <ProductInfo product={computeProductTotalPrice(product)} />
+    <div className="flex flex-col gap-8 pb-8 lg:container lg:mx-auto lg:gap-10 lg:px-5 lg:py-10">
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-9">
+        {/* @ts-expect-error */}
+        <ProductImages imageUrls={product.imageUrls} name={product.name} />
+        {/* @ts-expect-error */}
+        <ProductInfo product={computeProductTotalPrice(product)} />
+      </div>
 
-      <div>
-        <SectionTitle>Produtos recomendados</SectionTitle>
+      <div className="flex flex-col gap-5">
+        <SectionTitle className="pl-5">Produtos recomendados</SectionTitle>
         {/* @ts-expect-error */}
         <ProductList products={product?.category.products} />
       </div>
