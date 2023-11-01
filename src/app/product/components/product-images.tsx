@@ -30,11 +30,11 @@ const ProductImages = ({ imageUrls, name }: ProductImageProps) => {
         />
       </div>
 
-      <div className="mt-8 grid grid-cols-4 gap-4 px-5 lg:absolute lg:left-3 lg:grid-cols-1 lg:px-0">
+      <div className="mt-8 grid grid-cols-4 gap-4 px-5 lg:absolute lg:left-5 lg:grid-cols-1 lg:px-0">
         {imageUrls.map((imageUrl) => (
           <button
             key={imageUrl}
-            className={`flex h-[100px] items-center justify-center rounded-lg bg-accent lg:rounded-2xl lg:bg-[#0B0B0B] ${
+            className={`flex h-[100px] items-center justify-center rounded-lg bg-accent lg:h-[77px] lg:w-[77px] lg:rounded-2xl lg:bg-[#0B0B0B] ${
               imageUrl === currentImage &&
               "border-2 border-solid border-primary"
             }`}
