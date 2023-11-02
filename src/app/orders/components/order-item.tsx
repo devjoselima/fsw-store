@@ -113,7 +113,12 @@ const OrderItem = ({ order }: OrderItemProps) => {
 
                 <div className="flex w-full justify-between py-3 lg:text-sm">
                   <p>Subtotal</p>
-                  <p>R$ {subtotal.toFixed(2)}</p>
+                  <p>
+                    {subtotal.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </p>
                 </div>
 
                 <Separator />
@@ -127,14 +132,25 @@ const OrderItem = ({ order }: OrderItemProps) => {
 
                 <div className="flex w-full justify-between py-3 lg:text-sm">
                   <p>Descontos</p>
-                  <p>-R$ {totalDiscounts.toFixed(2)}</p>
+                  <p>
+                    -
+                    {totalDiscounts.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </p>
                 </div>
 
                 <Separator />
 
                 <div className="flex w-full justify-between py-3 text-sm font-bold lg:text-base">
                   <p>Total</p>
-                  <p>R$ {total.toFixed(2)}</p>
+                  <p>
+                    {total.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </p>
                 </div>
               </div>
             </div>

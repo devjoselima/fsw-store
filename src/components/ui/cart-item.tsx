@@ -48,11 +48,17 @@ const CartItem = ({ product }: CartItemProps) => {
 
           <div className="flex items-center gap-2">
             <p className="text-sm font-bold lg:text-base">
-              R$ {product.totalPrice.toFixed(2)}
+              {product.totalPrice.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
             </p>
             {product.discountPercentage > 0 && (
               <p className="text-xs line-through opacity-75 lg:text-sm">
-                R$ {Number(product.basePrice).toFixed(2)}
+                {Number(product.basePrice).toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </p>
             )}
           </div>

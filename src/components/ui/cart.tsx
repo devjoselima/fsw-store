@@ -65,7 +65,12 @@ const Cart = () => {
 
             <div className="flex items-center justify-between text-sm lg:text-sm">
               <p>Subtotal</p>
-              <p>R$ {subtotal.toFixed(2)}</p>
+              <p>
+                {subtotal.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </p>
             </div>
 
             <Separator />
@@ -79,14 +84,24 @@ const Cart = () => {
 
             <div className="flex items-center justify-between text-sm lg:text-sm">
               <p>Descontos</p>
-              <p>R$ {totalDiscount.toFixed(2)}</p>
+              <p>
+                {totalDiscount.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </p>
             </div>
 
             <Separator />
 
             <div className="flex items-center justify-between text-sm lg:text-base">
               <p className="font-bold">Total</p>
-              <p className="font-bold">R$ {total.toFixed(2)}</p>
+              <p className="font-bold">
+                {total.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </p>
             </div>
 
             <Button

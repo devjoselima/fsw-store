@@ -38,12 +38,21 @@ const OrderProductItem = ({ orderProduct }: OrderProductItemProps) => {
         <div className="flex w-full items-center justify-between gap-1 ">
           <div className="bottom-0 flex items-center justify-center gap-1 text-right lg:absolute lg:right-0 lg:top-0 lg:my-auto lg:flex-col lg:items-end">
             <p className="text-sm font-bold lg:text-xl">
-              R$ {productWithTotalPrice.totalPrice.toFixed(2)}
+              {productWithTotalPrice.totalPrice.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
             </p>
 
             {productWithTotalPrice.discountPercentage > 0 && (
               <p className="text-xs line-through opacity-60 lg:text-sm">
-                R$ {Number(productWithTotalPrice.basePrice).toFixed(2)}
+                {Number(productWithTotalPrice.basePrice).toLocaleString(
+                  "pt-BR",
+                  {
+                    style: "currency",
+                    currency: "BRL",
+                  },
+                )}
               </p>
             )}
           </div>

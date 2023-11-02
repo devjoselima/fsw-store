@@ -41,7 +41,10 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       <h2 className="text-lg lg:text-2xl">{product.name}</h2>
       <div className="flex items-center gap-1 lg:gap-2">
         <h1 className="text-xl font-bold lg:text-3xl">
-          R${product.totalPrice.toFixed(2)}
+          {product.totalPrice.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
         </h1>
         {product.discountPercentage > 0 && (
           <DiscountBadge className="lg:text-base">
@@ -52,7 +55,11 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       {product.discountPercentage > 0 && (
         <p className="text-sm line-through opacity-75 lg:text-base">
-          De: R${Number(product.basePrice).toFixed(2)}
+          De:
+          {Number(product.basePrice).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
         </p>
       )}
 
