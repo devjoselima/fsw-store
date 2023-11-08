@@ -10,15 +10,15 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const OrderPage = async () => {
-  const user = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-  if (!user) {
+  if (!session || !session.user) {
     return <p>Acesso negado, faça login</p>;
   }
 
   const orders = await prismaClient.order.findMany({
     where: {
-      userId: (user as any).id,
+      userId: session.user.id,
     },
     include: {
       orderProducts: {
